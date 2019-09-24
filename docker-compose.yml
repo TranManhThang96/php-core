@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: core_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dev
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: dev
+    ports:
+      - "9906:3306"
+  web:
+    image: php:7.2.2-apache
+    container_name: core_apache
+    depends_on:
+      - db
+    volumes:
+      - ./:/var/www/html/
+    ports:
+      - "8100:80"
+    stdin_open: true
+    tty: true
+
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      container_name: core_phpmyadmin
+      ports:
+        - "8188:80"
+      environment:
+        - PMA_ARBITRARY=1
+        - PMA_HOST=mysql
+      depends_on:
+        - db
