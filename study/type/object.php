@@ -1,11 +1,6 @@
 <?php
 
-class foo{
-    function do_foo()
-    {
-        echo "Doing foo";
-    }
-}
+$foo = new stdClass();
+$foo->bar = 'thangbeo';
 
-$a = new foo;
-var_dump($a->do_foo());
+var_dump($foo);
