@@ -1,10 +1,9 @@
 <?php
 function test()
 {
-    return 25;
+    $a = 0;
+    echo $a;
+    $a++;
 }
 
-$bar = &test();
-
-$bar = 20;
-var_dump(test());
+test();
