@@ -1,23 +1,18 @@
 <?php
-namespace ClassTest;
 
-class ParentClass
+class ParentTest
 {
-    public static $a = 'abcd';
-    public function test()
+    public function __construct()
     {
-        echo 'class parent';
+        echo 'hihi';
+    }
+
+    public function __destruct()
+    {
+        exit();
     }
 }
 
-class ChildClass extends ParentClass
-{
-    public function test()
-    {
-        parent::test();
-        echo parent::$a;
-        echo 'haha';
-    }
-}
+$a = new ParentTest();
+unset($a);
 
-echo ParentClas::class;
