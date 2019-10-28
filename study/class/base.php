@@ -1,18 +1,8 @@
 <?php
 
-class ParentTest
+abstract class test
 {
-    public function __construct()
-    {
-        echo 'hihi';
-    }
+    public $a;
+    abstract function show();
 
-    public function __destruct()
-    {
-        exit();
-    }
 }
-
-$a = new ParentTest();
-unset($a);
-
