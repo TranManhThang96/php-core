@@ -1,8 +1,23 @@
 <?php
 
-abstract class test
+trait TestTrait
 {
-    public $a;
-    abstract function show();
-
+    public function show(...$arr)
+    {
+        if (count($arr) > 0) {
+            foreach($arr as $a) {
+                echo "{$a}";
+            }
+        }
+    }
 }
+
+class Test
+{
+    use TestTrait;
+    public static $a = 1;
+    public static $b = 2;
+}
+
+$t = new Test;
+$t->show(Test::$a, Test::$b);
