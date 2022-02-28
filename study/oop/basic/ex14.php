@@ -8,11 +8,11 @@ class ObjectClass
 };
 
 $objectVar = new ObjectClass();
-$reference =& $objectVar;
+$reference = &$objectVar;
 $assignment = $objectVar;
 
 $objectVar->foo = "quix";
 $assignment->test = "thắng béo";
-var_dump( $objectVar );
-var_dump( $reference );
-var_dump( $assignment );
+var_dump($objectVar);
+var_dump($reference);
+var_dump($assignment);
